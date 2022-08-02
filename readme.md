@@ -1,4 +1,4 @@
-![Logo](https://github.com/reko-beep/prp-merit-lists/blob/master/logo.png?raw=true)
+![Logo](https://github.com/reko-beep/prp-merit-lists/blob/master/LOGO.png?raw=true)
 
 # PRP MERIT LISTS
 
