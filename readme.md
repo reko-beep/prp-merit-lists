@@ -17,3 +17,9 @@ gazat/year/month/program_name.docx
 are stored in merit folder.
 
 merit/year/month/program_name.docx
+
+### Applicants in each program [July 2022]
+
+FCPS | MS | MD | MDS | FCPS- DENTISTRY 
+--- | --- | --- | --- |--- 
+2310 | 1074 | 1117 | 52 | 96 
