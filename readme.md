@@ -23,3 +23,8 @@ merit/year/month/program_name.docx
 FCPS | MS | MD | MDS | FCPS- DENTISTRY 
 --- | --- | --- | --- |--- 
 2310 | 1074 | 1117 | 52 | 96 
+
+
+### Google Drive Link
+
+[Click here](https://drive.google.com/drive/folders/1cRjIDLXdh0yuIX1IixXqNcCoqzeOrwRw)
