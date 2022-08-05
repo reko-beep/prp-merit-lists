@@ -20,6 +20,7 @@ merit/year/month/program_name.docx
 
 ### Applicants in each program [July 2022]
 
+<<<<<<< HEAD
 
 | FCPS | MS   | MD   | MDS | FCPS- DENTISTRY |
 | ------ | ------ | ------ | ----- | ----------------- |
@@ -32,3 +33,13 @@ merit/year/month/program_name.docx
 #### Anaesthesia
 
 
+=======
+FCPS | MS | MD | MDS | FCPS- DENTISTRY 
+--- | --- | --- | --- |--- 
+2310 | 1074 | 1117 | 52 | 96 
+
+
+### Google Drive Link
+
+[Click here](https://drive.google.com/drive/folders/1cRjIDLXdh0yuIX1IixXqNcCoqzeOrwRw)
+>>>>>>> ea7c40f31f923ac6df020a0a1e996e6bff552681
