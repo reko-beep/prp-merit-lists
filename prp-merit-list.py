@@ -23,6 +23,7 @@ Please use original links | give proper credits if u use them
 '''
 
 
+
 import requests
 from json import dump,load
 from docx import Document
@@ -204,17 +205,35 @@ def save_stats(year: str, month:str, merit_list: str):
     '''
     Text = f'### {month} {year}\n'
     Text += '| Program  |  Speciality  | Highest | Lowest |  \n| ------ | ------ | ------ | ------ |\n'
+    values = []
     if exists('merit_stats.json'):
         with open('merit_stats.json', 'r') as f:
             data = load(f)
         for prog in data:
             percs = data[prog]
             for sub in percs:
-                print(percs[sub])
                 Text += f'| {prog.upper()} | {sub} | {max(percs[sub])} | {min(percs[sub])}| \n'
+                values.append([prog.upper(), sub, str(max(percs[sub])), str(min(percs[sub]))])
     check_path(f'merit/{year}/{month}/{merit_list}/')
     with open(f'merit/{year}/{month}/{merit_list}/stats.md', 'w') as f:
         f.write(Text)
+
+
+   
+    doc = Document()
+    table = doc.add_table(rows=len(values)+1,cols=4)
+    columns_ = ['Program', 'Speciality', 'Highest', 'Lowest']
+    heading = table.rows[0]
+    for i in list(range(len(columns_))):
+        heading.cells[i].text = columns_[i]
+    table_cells = table._cells
+    for i in range(1, len(values)+1,1):            
+        row_cells = table_cells[i*4:(i+1)*4]
+        text_ = values[i-1]
+        for c, t in enumerate(row_cells):
+            t.text =  text_[c]
+    doc.save(f'stats.docx') 
+
 
 def check_path(path: str):
     '''
