@@ -204,7 +204,7 @@ def save_stats(year: str, month:str, merit_list: str):
     save stats.md in the folder merit/year/month/
     '''
     Text = f'### {month} {year}\n'
-    Text += '| Program  |  Speciality  | Highest | Lowest |  \n| ------ | ------ | ------ | ------ |\n'
+    Text += '| Program  |  Speciality  | Parameter | Highest | Lowest |  \n| ------ | ------ | ------ | ------ | ------ |\n'
     values = []
     if exists('merit_stats.json'):
         with open('merit_stats.json', 'r') as f:
@@ -212,8 +212,11 @@ def save_stats(year: str, month:str, merit_list: str):
         for prog in data:
             percs = data[prog]
             for sub in percs:
-                Text += f'| {prog.upper()} | {sub} | {max(percs[sub])} | {min(percs[sub])}| \n'
-                values.append([prog.upper(), sub, str(max(percs[sub])), str(min(percs[sub]))])
+                for parameter in percs[sub]:
+
+                    Text += f'| {prog.upper()} | {sub} | {parameter} | {max(percs[sub][parameter])} | {min(percs[sub][parameter])}| \n'
+                    values.append([prog.upper(), sub  , parameter.title(), str(max(percs[sub][parameter])), str(min(percs[sub][parameter]))])
+                
     check_path(f'merit/{year}/{month}/{merit_list}/')
     with open(f'merit/{year}/{month}/{merit_list}/stats.md', 'w') as f:
         f.write(Text)
@@ -272,8 +275,17 @@ def get_all_merits():
             if program not in data_perc:
                 data_perc[program] = {}
             if item['specialityName'] not in data_perc[program]:
-                data_perc[program][item['specialityName']] = []
-            data_perc[program][item['specialityName']].append(item['marks'])
+                data_perc[program][item['specialityName']] = {}
+                data_perc[program][item['specialityName']]['merit'] = []
+
+            data_perc[program][item['specialityName']]['merit'].append(item['marks'])
+            if item['hospitalName'] not in data_perc[program][item['specialityName']]:
+                data_perc[program][item['specialityName']][item['hospitalName']] = []
+            data_perc[program][item['specialityName']][item['hospitalName']].append(item['marks'])
+            if item['quotaName'] not in data_perc[program][item['specialityName']]:
+                data_perc[program][item['specialityName']][item['quotaName']] = []
+            data_perc[program][item['specialityName']][item['quotaName']].append(item['marks'])
+            
         save_file(data, program)
 
     with open('merit_stats.json', 'w') as f:
