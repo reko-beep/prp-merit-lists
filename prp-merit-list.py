@@ -224,14 +224,14 @@ def save_stats(year: str, month:str, merit_list: str):
 
    
     doc = Document()
-    table = doc.add_table(rows=len(values)+1,cols=4)
-    columns_ = ['Program', 'Speciality', 'Highest', 'Lowest']
+    table = doc.add_table(rows=len(values)+1,cols=5)
+    columns_ = ['Program', 'Speciality', 'Parameter', 'Highest', 'Lowest']
     heading = table.rows[0]
     for i in list(range(len(columns_))):
         heading.cells[i].text = columns_[i]
     table_cells = table._cells
     for i in range(1, len(values)+1,1):            
-        row_cells = table_cells[i*4:(i+1)*4]
+        row_cells = table_cells[i*5:(i+1)*5]
         text_ = values[i-1]
         for c, t in enumerate(row_cells):
             t.text =  text_[c]
@@ -292,5 +292,5 @@ def get_all_merits():
         dump(data_perc, f, indent=1)
 
 
-check = get_all_merits()
-save_stats('2022', 'july', 'second')
+
+save_stats('2022', 'july', 'third')
