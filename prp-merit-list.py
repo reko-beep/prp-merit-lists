@@ -292,5 +292,5 @@ def get_all_merits():
         dump(data_perc, f, indent=1)
 
 
-
-save_stats('2022', 'july', 'third')
+get_all_merits()
+save_stats('2022', 'july', 'fourth')
