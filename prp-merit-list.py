@@ -292,5 +292,6 @@ def get_all_merits():
         dump(data_perc, f, indent=1)
 
 
-get_all_merits()
-save_stats('2022', 'july', 'fourth')
+
+gazat = get_whole_gazat('fcps')
+save_file(gazat, 'fcps')
